@@ -1,4 +1,5 @@
 from pydantic import BaseModel
 
-class GenerateHtmlRequest(BaseModel):
+class HtmlRequest(BaseModel):
+    connection_id: str;
     input: str
