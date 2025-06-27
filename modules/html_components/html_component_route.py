@@ -15,21 +15,20 @@ router = APIRouter(
 async def generate_html_component(
     request: Request,
     backgroundTasks: BackgroundTasks,
-    connection_id: str = Body(...),
-    input: str = Body(...)
+    data: HtmlRequest = Body(...),
 ):
     print(request)
     user_id = request.state.user_id
     
     websocket_service: WebsocketService = Container.resolve("websocket_service")
-    websocket = websocket_service.get_connection(connection_id)
+    websocket = websocket_service.get_connection(data.connection_id)
 
     if websocket is None:
         raise HTTPException(status_code=404, detail="Websocket connection not found.")
     
     prompted_html_generator: PromptedHtmlComponentGenerator = Container.resolve("prompted_html_generator")
 
-    backgroundTasks.add_task(prompted_html_generator.interact, user_id, input, websocket)
+    backgroundTasks.add_task(prompted_html_generator.interact, user_id, data.input, websocket)
     
     return JSONResponse(status_code=200, content={"message": "Request received"});
 
