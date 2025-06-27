@@ -28,7 +28,7 @@ async def generate_html_component(
     
     prompted_html_generator: PromptedHtmlComponentGenerator = Container.resolve("prompted_html_generator")
 
-    backgroundTasks.add_task(prompted_html_generator.interact, user_id, data.input, websocket)
+    backgroundTasks.add_task(prompted_html_generator.generate_react_component, user_id, data.input, websocket)
     
     return JSONResponse(status_code=200, content={"message": "Request received"});
 
