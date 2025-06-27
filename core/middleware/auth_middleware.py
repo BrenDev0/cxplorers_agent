@@ -4,7 +4,7 @@ from core.dependencies.container import Container
 from fastapi.responses import JSONResponse
 
 async def auth_middleware(request: Request, call_next):
-    if request.url.path in ["docs"]:
+    if request.url.path in ["/docs"]:
         return await call_next(request)
     
     try:
