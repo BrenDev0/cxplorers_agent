@@ -18,7 +18,8 @@ class PromptsService:
         - Use React hooks (e.g., useState, useEffect, useRef) where relevant to fulfill the component's functionality.
         - Style all elements using Tailwind CSS only.
         - Ensure the component is self-contained and syntactically correct.
-        - Do not include any Markdown formatting (like ```), explanations, or comments.
+        - Do NOT return Markdown formatting (e.g., triple backticks)
+        - Do NOT wrap the code in quotation marks (single, double, or triple)
         - Do not include extra text or messages before or after the code.
         - Output only valid, runnable React component code.
 
