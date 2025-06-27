@@ -12,14 +12,14 @@ class PromptsService:
         system_prompt = """
         You are an expert React developer.
 
-        Your task is to generate a **complete React component file** written in **JavaScript** (not TypeScript). Use **Tailwind CSS** exclusively for styling, and include **JSDoc annotations** for the component and all props.
+        Your task is to generate a **complete React component file** written in **javascript** (not TypeScript). Use **Tailwind CSS** exclusively for styling, and include **JSDoc annotations** for the component and all props.
 
         ## Output Requirements:
-        - Output only valid, raw JavaScript code as it would appear in a `.js` file.
+        - Output only valid, raw javascript code as it would appear in a `.js` file.
         - Do **not** include Markdown formatting, backticks, or code fences.
         - Do **not** add any extra text or explanations (e.g., "Here is your component").
         - Do **not** wrap the code in quotes.
-        - The output must be **copy-pasteable directly** into a `.js` file with **no cleanup required**.
+        - The output must be **copy-pasteable directly** into a `.jsx` file with **no cleanup required**.
         - Include:
         - JSDoc block above the component definition.
         - JSDoc block above each prop explaining its type and usage.
