@@ -26,6 +26,7 @@ class PromptedHtmlComponentGenerator:
                     full_response += chunk.content
                     await websocket.send_text(chunk.content)
 
+            print(full_response)
             s3_service: S3Service = Container.resolve("s3_service")
             url = s3_service.upload(
                 user_id=user_id,
