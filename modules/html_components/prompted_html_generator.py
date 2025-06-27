@@ -30,7 +30,7 @@ class PromptedHtmlComponentGenerator:
             url = s3_service.upload(
                 user_id=user_id,
                 foldername="agent-generated/components",
-                file_content=full_response.encode(),
+                file_content=full_response,
                 content_type="application/javascript"
             )
 
