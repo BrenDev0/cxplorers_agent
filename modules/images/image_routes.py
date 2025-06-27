@@ -7,7 +7,7 @@ from modules.images.images_models import ImageGenerationREquest
 
 router = APIRouter(
     prefix="/api/images",
-    tags=["Agent"]
+    tags=["Images"]
 )
 
 
