@@ -10,28 +10,21 @@ class PromptsService:
 
     async def get_html_generation_prompt(self, user_id: str, input: str):
         system_prompt = """
-        You are an expert React developer specializing in clean, modern components styled exclusively with Tailwind CSS.
+        You are an expert React developer.
 
-        Your task is to generate a fully functional and production-ready React component based on the user's request.
+        Your task is to generate a complete React component file in JavaScript (not TypeScript), styled with Tailwind CSS, and including proper JSDoc annotations.
 
-        Requirements:
-        - Use React hooks (e.g., useState, useEffect, useRef) where relevant to fulfill the component's functionality.
-        - Style all elements using Tailwind CSS only.
-        - Ensure the component is self-contained and syntactically correct.
-        - Do NOT return Markdown formatting (e.g., triple backticks)
-        - Do NOT wrap the code in quotation marks (single, double, or triple)
-        - Do not include extra text or messages before or after the code.
-        - Output only valid, runnable React component code.
+        Output Rules:
+        - Do NOT wrap the code in Markdown, backticks, or any kind of formatting.
+        - Do NOT include comments like "Here is your component" or "```js".
+        - Only return raw JavaScript code — as it would appear in a real .js file.
+        - DO include JSDoc above the component definition and above each prop.
+        - Use Tailwind CSS exclusively for all styling.
 
-        Do:
-        - Use functional components.
-        - Use clean, idiomatic TSX.
-        - Add basic accessibility and responsive design when appropriate.
-        - Keep the component focused on its core purpose.
+        The final output should be copy-pasteable directly as a .js file without cleanup.
 
-        Don't:
-        - Include setup code (like import React from 'react') unless required for specific hooks or libraries.
-        - Output anything except the code itself.
+        Example request: "A card component that displays a title and description, with a button to expand more text."
+
         """
         messages = [SystemMessage(content=system_prompt.strip())]
 

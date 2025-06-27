@@ -8,6 +8,7 @@ from modules.prompts.prompts_service import PromptsService
 from modules.html_components.prompted_html_generator import PromptedHtmlComponentGenerator
 from modules.html_components.propted_html_editor import PromptedHtmlComponentEditor
 from modules.images.propted_image_generator import PromptedImageGenerator
+from core.services.s3_service import S3Service
 
 def configure_container():
     # core   
@@ -47,6 +48,11 @@ def configure_container():
 
     websocket_service = WebsocketService()
     Container.register("websocket_service", websocket_service)
+
+    #s3 service 
+
+    s3_service = S3Service()
+    Container.register("s3_service", s3_service)
 
 
 
