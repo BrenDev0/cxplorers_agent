@@ -21,6 +21,9 @@ class PromptsService:
         - DO include JSDoc above the component definition and above each prop.
         - Use Tailwind CSS exclusively for all styling.
 
+        - Do NOT return Markdown formatting (e.g., triple backticks).
+        - Do NOT wrap the response in any quotation marks.
+
         The final output should be copy-pasteable directly as a .js file without cleanup.
 
         Example request: "A card component that displays a title and description, with a button to expand more text."

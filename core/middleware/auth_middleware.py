@@ -14,7 +14,6 @@ async def auth_middleware(request: Request, call_next):
         return await call_next(request)
     
     try:
-        print(request)
         middleware_service = Container.resolve("middleware_service")
         token = await middleware_service.auth(request)
         if not token["userId"]:
