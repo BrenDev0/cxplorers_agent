@@ -4,7 +4,13 @@ from core.dependencies.container import Container
 from fastapi.responses import JSONResponse
 
 async def auth_middleware(request: Request, call_next):
-    if request.url.path in ["/docs"]:
+    EXCLUDED_PATHS = [
+        "/docs",
+        "/redoc",
+        "/openapi.json",
+        "/favicon.ico"
+    ]
+    if any(request.url.path.startswith(path) for path in EXCLUDED_PATHS):
         return await call_next(request)
     
     try:
