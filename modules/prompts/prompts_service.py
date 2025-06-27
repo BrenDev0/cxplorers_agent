@@ -10,16 +10,15 @@ class PromptsService:
 
     async def get_html_generation_prompt(self, user_id: str, input: str):
         system_prompt = """
-        You are an expert at generating HTML components styled with Tailwind CSS.
+        You are an expert at generating React components styled with Tailwind CSS.
 
-        Your task is to generate a valid HTML component, styled exclusively using Tailwind CSS, based on the client's request.
+        Your task is to generate a valid React component, styled exclusively using Tailwind CSS, based on the client's request.
 
         - IMPORTANT - Do not include any explanations, Markdown formatting (like ```), or extra text.
-        - IMPORTANT - Do not incluede any HTML boilerplate (no <html>, <head>, <body>, or <script> tags)
-        - IMPORTANT - Only return raw HTML.
+        - IMPORTANT - Only return valid React components.
 
         Your output must:
-        - Be valid HTML
+        - Be valid React Components
         - Use only valid Tailwind CSS classes
         """
         messages = [SystemMessage(content=system_prompt.strip())]
