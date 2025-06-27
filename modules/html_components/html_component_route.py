@@ -8,7 +8,7 @@ from core.services.webSocketService import WebsocketService
 
 router = APIRouter(
     prefix="/api/html",
-    tags=["HTML"]
+    tags=["HTML"],
 )
 
 @router.post("/generate", response_class=JSONResponse)
@@ -17,6 +17,7 @@ async def generate_html_component(
     backgroundTasks: BackgroundTasks,
     data: HtmlRequest = Body(...),
 ):
+    print(request)
     user_id = request.state.user_id
     
     websocket_service: WebsocketService = Container.resolve("websocket_service")
