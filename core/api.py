@@ -1,7 +1,8 @@
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Query
 from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
-from modules.agents import agent_routes
+from modules.html_components import html_component_route
+from modules.images import image_routes
 from core.middleware.auth_middleware import auth_middleware
 from core.dependencies.configure_container import configure_container
 from core.dependencies.container import Container
@@ -28,7 +29,8 @@ app.add_middleware(
 
 app.middleware("http")(auth_middleware)
 
-app.include_router(agent_routes.router)
+app.include_router(html_component_route.router)
+app.include_router(image_routes.router)
 
 
 @app.websocket("/ws/{connection_id}")

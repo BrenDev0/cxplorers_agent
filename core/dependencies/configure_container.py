@@ -5,9 +5,9 @@ from core.middleware.middleware_service import MiddlewareService
 from core.services.webtoken_service import WebTokenService
 from core.services.webSocketService import WebsocketService
 from modules.prompts.prompts_service import PromptsService
-from modules.agents.prompted_html_generator import PromptedHtmlComponentGenerator
-from modules.agents.propted_html_editor import PromptedHtmlComponentEditor
-from modules.agents.propted_image_generator import PromptedImageGenerator
+from modules.html_components.prompted_html_generator import PromptedHtmlComponentGenerator
+from modules.html_components.propted_html_editor import PromptedHtmlComponentEditor
+from modules.images.propted_image_generator import PromptedImageGenerator
 
 def configure_container():
     # core   
