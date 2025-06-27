@@ -24,7 +24,7 @@ class PromptsService:
 
         Do:
         - Use functional components.
-        - Use clean, idiomatic JSX.
+        - Use clean, idiomatic TSX.
         - Add basic accessibility and responsive design when appropriate.
         - Keep the component focused on its core purpose.
 
