@@ -5,7 +5,7 @@ from core.dependencies.container import Container
 from core.services.s3_service import S3Service
 import subprocess
 
-class PromptedHtmlComponentGenerator:
+class PromptedComponentGenerator:
     def __init__(self, prompts_service: PromptsService):
         self.prompts_service = prompts_service
 

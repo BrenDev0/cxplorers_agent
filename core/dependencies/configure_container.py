@@ -5,7 +5,7 @@ from core.middleware.middleware_service import MiddlewareService
 from core.services.webtoken_service import WebTokenService
 from core.services.webSocketService import WebsocketService
 from modules.prompts.prompts_service import PromptsService
-from modules.html_components.prompted_html_generator import PromptedHtmlComponentGenerator
+from modules.html_components.prompted_component_generator import PromptedComponentGenerator
 from modules.html_components.propted_html_editor import PromptedHtmlComponentEditor
 from modules.images.propted_image_generator import PromptedImageGenerator
 from core.services.s3_service import S3Service
@@ -32,7 +32,7 @@ def configure_container():
     Container.register("prompts_service", prompts_service)
 
     # HTML
-    prompted_html_generator = PromptedHtmlComponentGenerator(
+    prompted_html_generator = PromptedComponentGenerator(
         prompts_service=prompts_service
     )
     Container.register("prompted_html_generator", prompted_html_generator)

@@ -1,9 +1,9 @@
 from fastapi import APIRouter, BackgroundTasks, Depends, Body, Request, HTTPException
 from fastapi.responses import JSONResponse
 from core.dependencies.container import Container
-from modules.html_components.prompted_html_generator import PromptedHtmlComponentGenerator
+from modules.html_components.prompted_component_generator import PromptedComponentGenerator
 from modules.html_components.propted_html_editor import PromptedHtmlComponentEditor
-from modules.html_components.html_componets_models import HtmlRequest
+from modules.html_components.html_components_models import HtmlRequest
 from core.services.webSocketService import WebsocketService
 
 router = APIRouter(
@@ -26,7 +26,7 @@ async def generate_html_component(
     if websocket is None:
         raise HTTPException(status_code=404, detail="Websocket connection not found.")
     
-    prompted_html_generator: PromptedHtmlComponentGenerator = Container.resolve("prompted_html_generator")
+    prompted_html_generator: PromptedComponentGenerator = Container.resolve("prompted_html_generator")
 
     backgroundTasks.add_task(prompted_html_generator.generate_react_component, user_id, data.input, websocket)
     
